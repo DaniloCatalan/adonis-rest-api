@@ -7,8 +7,9 @@ class TareaSchema extends Schema {
   up () {
     this.create('tareas', (table) => {
       table.increments()
-      table.integer('project_id').unsigned().references('id').inTable('project');
+      table.integer('project_id').unsigned().references('id').inTable('projects')
       table.string('description',255).notNullable()
+      table.boolean('completed').default(false)
       table.timestamps()
     })
   }
