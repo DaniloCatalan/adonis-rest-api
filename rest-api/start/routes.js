@@ -29,5 +29,7 @@ Route.group(()=>{
   Route.post('users/login','UserController.login');
   Route.get('project','ProjectController.index').middleware('auth');
   Route.post('project/create','ProjectController.create').middleware('auth');
+  Route.delete('project/:id','ProjectController.destroy').middleware('auth');
+  Route.patch('project/:id','ProjectController.update').middleware('auth');
 }).prefix('api/v1/');
 //para manejar otra version podriamos crear otro prefijo
